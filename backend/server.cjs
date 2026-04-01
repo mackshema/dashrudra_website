@@ -7,6 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("DashRudhra Backend is Running 🚀");
+});
+
 // Transporter setup directly linking to your Gmail account
 const transporter = nodemailer.createTransport({
   service: 'gmail',
