@@ -23,7 +23,7 @@ const Contact = () => {
 
     try {
       // Connects directly to your own custom logic Express Backend!
-      const response = await fetch("https://dashrudra-website.onrender.com", {
+      const response = await fetch("https://dashrudra-website.onrender.com/api/send-email", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json'
