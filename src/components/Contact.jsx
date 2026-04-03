@@ -22,8 +22,9 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Connects directly to your own custom logic Express Backend!
-      const response = await fetch("https://dashrudra-website.onrender.com/api/send-email", {
+      // Dynamically targets local backend in dev, Render in production
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+      const response = await fetch(`${backendUrl}/api/send-email`, {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json'
