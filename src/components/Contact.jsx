@@ -35,7 +35,10 @@ const Contact = () => {
         setSuccess(true);
         setFormData({ name: '', email: '', mobile: '', institution: '', message: '' });
       } else {
-        alert("The backend server rejected the request. Please check your credentials.");
+        // Attempt to parse the error message from the backend, if it provided one
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.error || "The backend server rejected the request. Please check your credentials.";
+        alert(`Backend Error: ${errorMessage}`);
       }
     } catch (error) {
       console.error("Backend Error:", error);
